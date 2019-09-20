@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "open": "cypress open",
+    "test": "cypress run --browser chrome"
+  },
+  "dependencies": {
+    "cypress": "^3.4.1"
+  }
+}
