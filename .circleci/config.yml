@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:4.8.2
     steps:
       - run: sudo apt-get update
-      - run: sudo apt-get install openjdk-7-jre-headless
+      - run: sudo apt install openjdk-8-jdk
       - run: wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.tgz
       - run: tar xf apache-jmeter-5.0.tgz
       - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
