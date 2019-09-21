@@ -7,11 +7,21 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - allianz-tests-{{ checksum ".tests/yarn.lock" }}
+            - allianz-tests-{{ checksum "ui_test_cypress/yarn.lock" }}
             - allianz-tests-
-      - run: cd .tests && yarn
-      - run: cd .tests && yarn test --config video=false
+      - run: cd ui_test_cypress && yarn
+      - run: cd ui_test_cypress && yarn test --config video=false
       - save_cache:
-          key: allianz-tests-{{ checksum ".tests/yarn.lock" }}
+          key: allianz-tests-{{ checksum "ui_test_cypress/yarn.lock" }}
           paths:
-            - ~/.tests/node_modules
+            - ~/ui_test_cypress/node_modules
+  api-jmeter:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt install openjdk-8-jdk
+      - run: wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.tgz
+      - run: tar xf apache-jmeter-5.0.tgz
+      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
+      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t non_functional_test.jmx
