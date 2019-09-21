@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: circleci/node:4.8.2
     steps:
+      - run: sudo add-apt-repository ppa:openjdk-r/ppa
       - run: sudo apt-get update
       - run: sudo apt-get install openjdk-8-jre
       - run: wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.tgz
