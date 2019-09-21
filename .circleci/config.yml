@@ -8,5 +8,5 @@ jobs:
       - run: sudo apt-get install openjdk-7-jre-headless
       - run: wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.tgz
       - run: tar xf apache-jmeter-5.0.tgz
-      - run: cd apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
-      - run: cd apache-jmeter-5.0/bin/./jmeter.sh -n -t non_functional_test.jmx
+      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
+      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t non_functional_test.jmx
