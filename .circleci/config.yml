@@ -10,3 +10,18 @@ jobs:
       - run: tar xf apache-jmeter-5.0.tgz
       - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
       - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t non_functional_test.jmx
+  cypress:
+    docker:
+      - image: circleci/node:lts-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - allianz-tests-{{ checksum ".tests/yarn.lock" }}
+            - allianz-tests-
+      - run: cd .tests && yarn
+      - run: cd .tests && yarn test --config video=false
+      - save_cache:
+          key: allianz-tests-{{ checksum ".tests/yarn.lock" }}
+          paths:
+            - ~/.tests/node_modules
