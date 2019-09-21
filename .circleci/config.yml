@@ -1,15 +1,5 @@
 version: 2.1
 jobs:
-  build:
-    docker:
-      - image: circleci/node:4.8.2
-    steps:
-      - run: sudo apt-get update
-      - run: sudo apt install openjdk-8-jdk
-      - run: wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.0.tgz
-      - run: tar xf apache-jmeter-5.0.tgz
-      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t functional_test.jmx
-      - run: apache-jmeter-5.0/bin/./jmeter.sh -n -t non_functional_test.jmx
   cypress:
     docker:
       - image: circleci/node:lts-browsers
