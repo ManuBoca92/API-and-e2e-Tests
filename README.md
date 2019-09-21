@@ -40,4 +40,4 @@ I wasn't able to access most elements inside the iframe due to **css styling** a
 
 After this has been done, I will then begin testing the key features which I had earlier named. 
 
-Lastly, after completing all tests, I will setup a CI/CD confguration so as to run tests on a every pull/merge request like I have done here with CircleCi.
+Lastly, after completing all tests, I will setup a CI/CD confguration so as to run tests on a every pull/merge request like I have done here with **CircleCI**.
