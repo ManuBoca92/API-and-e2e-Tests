@@ -9,12 +9,17 @@ https://api.adviceslip.com/advice
 ## Functional tests
 #### Test case 1
 API GET request to get a random advise.
+* check that the `response code` is `200`.
 
 #### Test case 2
 API GET request to get an advise by `id`.
+* check that the `response code` is `200`.
+* check that the JSON response has a `key` which matches the a specific `value`.
 
 #### Test case 3
 API GET request to search for an advise using a search `query`.
+* check that the `response code` is `200`.
+* check that the JSON response has a `key` which matches the a specific `value`.
 
 ## Non-functional tests
 Test cases 1 to 3 were repeated,for a 100 requests per second for a loop count of 10. 
