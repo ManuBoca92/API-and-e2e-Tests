@@ -3,13 +3,12 @@ jobs:
   build:
     docker:
       - image: circleci/node:4.8.2
-    dependencies:
-      post:
-        - sudo apt-get update
-        - wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.2.zip
-        - sudo apt-get install unzip
-        - unzip apache-jmeter-3.2.zip
-        - cd bin/ && /bin/sh jmeter.sh -n -t functional_test.jmx
-        - cd bin/ && /bin/sh jmeter.sh -n -t non_functional_test.jmx
+    steps:
+      - sudo apt-get update
+      - wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.2.zip
+      - sudo apt-get install unzip
+      - unzip apache-jmeter-3.2.zip
+      - cd bin/ && /bin/sh jmeter.sh -n -t functional_test.jmx
+      - cd bin/ && /bin/sh jmeter.sh -n -t non_functional_test.jmx
     steps:
       - checkout
