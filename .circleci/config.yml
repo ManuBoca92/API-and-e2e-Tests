@@ -5,9 +5,9 @@ jobs:
       - image: circleci/node:4.8.2
     steps:
       - run: sudo apt-get update
-      - run: wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-3.2.zip
+      - run: wget -c http://ftp.ps.pl/pub/apache//jmeter/binaries/apache-jmeter-5.0.zip
       - run: sudo apt-get install unzip
-      - run: unzip apache-jmeter-3.2.zip
+      - run: unzip apache-jmeter-5.0.zip
       - run: cd apache-jmeter-3.2/bin
       - run: sh jmeter.sh -n -t functional_test.jmx
       - run: sh jmeter.sh -n -t non_functional_test.jmx
