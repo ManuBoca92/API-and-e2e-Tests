@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  cypress:
+  build:
     docker:
       - image: circleci/node:lts-browsers
     steps:
